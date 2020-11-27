@@ -1,7 +1,7 @@
 Grid g;
 void setup() {
   size(500, 500);
-  // fullScreen();
+	// fullScreen();
   g = new Grid(width, height, 1);
   colorMode(HSB, 360);
   background(360);
