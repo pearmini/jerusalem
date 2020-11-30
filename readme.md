@@ -80,4 +80,4 @@ The left picture below is only in BFS mode, it is a little bit monotonous, becau
 
 This sketch is inspired by the great work done by [Mike Bostock](https://bl.ocks.org/mbostock/11337835).
 
-<a href="./mr_bug/painter_bug.pde"><img src="./painter_bug/screenshots/bfs.gif" height="250px" ></a>&emsp;<a href="./mr_bug/painter_bug.pde"><img src="./painter_bug/screenshots/dfs.gif" height="250px" ></a>&emsp;<a href="./mr_bug/painter_bug.pde"><img src="./painter_bug/screenshots/both.gif" height="250px"></a>
+<a href="./mr_bug/mr_bug.pde"><img src="./mr_bug/screenshots/bfs.gif" height="250px" ></a>&emsp;<a href="./mr_bug/mr_bug.pde"><img src="./mr_bug/screenshots/dfs.gif" height="250px" ></a>&emsp;<a href="./mr_bug/mr_bug.pde"><img src="./mr_bug/screenshots/both.gif" height="250px"></a>
