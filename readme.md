@@ -26,15 +26,17 @@ So the Jerusalem in my mind begins just like the mysterious universe where you p
 
 Instead of using math to control particles, it is also possible to use physic principles to combine them any shapes I want，then here comes to Ice and Fire. Ice and Fire is inspired by the fire brush, I change the color, shape and the definition of the particles. Normally, fire and ice can’t coexist, but in my Jerusalem ice can burn into fire. This revel one of the greatest joy of coding that you the god for you program, and here I make two completely confit things look peaceful.
 
-<a href="./ice_and_fire/ice_and_fire.pde"><img src="./ice_and_fire/screenshots/example.gif"></a>
+<a href="./ice_and_fire/ice_and_fire.pde"><img src="./ice_and_fire/screenshots/example.gif" height="500px"></a>
 
 ## Tree Plant
 
 A flower can be a world, and a particle can a plant. I based the Plant created by __ to build a plant can grows trees by my own, Each time you click the plant, it will grow a random color tree. And on this tree plant, it will consist of threes at most,  otherwise the extra tree will die.
 
+<a href="./tree_planet/tree_planet.pde"><img src="./tree_planet/screenshots/example.gif" height="500px"></a>
+
 ## Gluttonous Squid
 
-Whenever there is a plant, there will a monster try to eat it. In my Jerusalem, it is the Gluttonous Squid which is a combination of this sketch and this sketch. It is so cute that you will not be angry at all even it eat colorful plants for fun. The closer you mouse with it, the larger and faster it is.	
+Whenever there is a plant, there will a monster try to eat it. In my Jerusalem, it is the Gluttonous Squid which is a combination of this sketch and this sketch. It is so cute that you will not be angry at all even it eat colorful plants for fun. The closer you mouse with it, the larger and faster it is.
 
 ## Rainbow Dragon
 
@@ -50,4 +52,4 @@ The left picture below is only in BFS mode, it is a little bit Monotonous, becau
 
 In real life, BFS means doing a part of tasks by turn, while DFS means doing tasks one by one. The bug tell us a truth that only when we make balance between two of methods, we can achieve a better outcome and a pleasing and memorable journey.
 
-<a href="./painter_bug/painter_bug.pde"><img src="./painter_bug/screenshots/bfs.gif" height="192px" ></a>&emsp;<a href="./painter_bug/painter_bug.pde"><img src="./painter_bug/screenshots/dfs.gif" height="192px" ></a>&emsp;<a href="./painter_bug/painter_bug.pde"><img src="./painter_bug/screenshots/both.gif" height="192px"></a>
+<a href="./painter_bug/painter_bug.pde"><img src="./painter_bug/screenshots/bfs.gif" height="220px" ></a>&emsp;<a href="./painter_bug/painter_bug.pde"><img src="./painter_bug/screenshots/dfs.gif" height="220px" ></a>&emsp;<a href="./painter_bug/painter_bug.pde"><img src="./painter_bug/screenshots/both.gif" height="220px"></a>
