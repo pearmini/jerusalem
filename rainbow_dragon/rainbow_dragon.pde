@@ -16,7 +16,7 @@ class Brush{
 	float angle;
 	float hu;
 	float size;
-	float seedX,s eedY, seedAngle, seedHu,s eedSize;
+	float seedX,seedY, seedAngle, seedHu, seedSize;
 	
 	Brush() {
 		seedX = random(10);
@@ -41,7 +41,7 @@ class Brush{
 		location.y = map(noise(seedY), 0, 1, 0, height);
 		angle = map(noise(seedAngle), 0, 1, 0, TWO_PI);
 		hu = map(noise(seedAngle,seedSize), 0, 1, 0, 360);
-		size = map(noise(seedSize), 0, 1, 0,1 00);
+		size = map(noise(seedSize), 0, 1, 0,100);
 		seedX += 0.01;
 		seedY += 0.01;
 		seedAngle += 0.01;
