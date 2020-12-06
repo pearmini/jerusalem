@@ -40,11 +40,11 @@ There is an old saying that the sun always comes after wind and rain, but here f
 
 ## Acqman
 
-Since fire and ice are mentioned, water cannot be ignored. And the sea has the most water in the world, so I must add the king of the sea to my Jerusalem, *Acqman*, who is one of my favorite super heros.
+Since fire and ice are mentioned, water cannot be ignored. And the sea has the most water in the world, so I must add the king of the sea to my Jerusalem, *Acqman*, who is one of my favorite super heroes.
 
 There is a wonderful line in the movie "Acqman": **What could be greater than a king? A hero. A king only fights for its nation. You fight for everyone.**
 
-Everyone is looking for sunshine, but no one can survive without air. Just like the king who always comes and go without a trace and silently protects everyone.
+Everyone is looking for sunshine, but no one can survive without air. Just like the king of sea who always comes and goes without a trace and silently protects everyone.
 
 <a href="./acqman/acqman.pde"><img src="./acqman/screenshots/example.gif" height="500px"></a>
 
@@ -98,18 +98,18 @@ This sketch is inspired by the great work done by [Mike Bostock](https://bl.ocks
 
 **In my Jerusalem, sadness makes happiness more memorable.**
 
- Although now there is a happy tree planet, a fearless gluttonous squid, a unpredictable rainbow dragon, a delightful Mr.bug, there is also a broken heart.
+ Although a happy tree planet, a fearless gluttonous squid, a unpredictable rainbow dragon and a delightful Mr.bug makes my Jerusalem a happy place, there is also a broken heart representing despair and helpless.
 
-This heart has been deformed hurt by the sad news it saws. **No matter what, life is joy in suffering and all we can do is to be cute.**
+This heart has been deformed hurt by the sad news it saws. **No matter what, life is joy in suffering and all we can do is trying to be cute at the bottom of life.**
 
-<a href="./broken_heart/broken_heart.pde"><img src="./broken_heart/example.gif" ></a>
+<a href="./broken_heart/broken_heart.pde"><img src="./broken_heart/example.gif" height="500px"></a>
 
 ## Clutch Shot
 
-And finally it comes to *Clutch Shot* which is the first Processing sketch I created and the key to my Jerusalem. **Because it is first time that I use code to record a tiny moment in my life which led me to a fancy world.**
+And finally it comes to *Clutch Shot* which is the first Processing sketch I created and it is the key to my Jerusalem. **Because it is the first time that I use code to record a tiny moment in my life which show me to a fancy world.**
 
-It tells a sad but educational story which was a extremely dramaticbasketball final in our University. Our team was ahead of about 20 points in the first half of the game, but was lost at the last second.
+It tells a sad but educational story about an extremely dramatic basketball final in our University. Our team was ahead of about 20 points in the first half of the game, but was lost at the last second.
 
-There is a big shooter and a small defender is insignificant compared to him, and the result is also obvious, the small ball is about to be thrown into the big basket!
+There is a big shooter and the defender is insignificant small compared to him. The result is obvious, the small ball is about to be thrown into the big basket!
 
 <a href="./clutch_shoot/clutch_shoot.pde"><img src="./clutch_shoot/screenshots/example.png" ></a>
