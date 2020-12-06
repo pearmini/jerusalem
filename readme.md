@@ -8,9 +8,11 @@ The Bible does not directly describe heaven, but depicts [Jerusalem](https://sim
 
 The code for all the sketches is not long, and I create each of them inspiring by one or other people’s projects.
 
-<a href="https://www.openprocessing.org/sketch/748916"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail748916@2x.jpg" height="192px" ></a>&emsp;<a href="https://www.openprocessing.org/sketch/725409"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail725409@2x.jpg" height="192px" ></a>&emsp;<a href="https://www.openprocessing.org/sketch/736203"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail736203@2x.jpg" height="192px"></a>
+<a href="https://www.openprocessing.org/sketch/748916"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail748916@2x.jpg" height="192px" ></a>&emsp;<a href="https://www.openprocessing.org/sketch/725409"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail725409@2x.jpg" height="192px" ></a>&emsp;<a href="https://www.openprocessing.org/sketch/643911"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail643911@2x.jpg" height="192px" ></a>
 
-<a href="https://www.openprocessing.org/user/144707/#sketches"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail757223@2x.jpg" height="192px" ></a>&emsp;<a href="https://www.openprocessing.org/sketch/645675"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail645675@2x.jpg" height="192px" ></a>&emsp;<a href="https://www.openprocessing.org/sketch/728303"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail728303@2x.jpg" height="192px"></a>
+<a href="https://www.openprocessing.org/sketch/736203"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail736203@2x.jpg" height="192px"></a>&emsp;<a href="https://www.openprocessing.org/user/144707/#sketches"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail757223@2x.jpg" height="192px" ></a>&emsp;<a href="https://www.openprocessing.org/sketch/645675"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail645675@2x.jpg" height="192px" ></a>
+
+<a href="https://www.openprocessing.org/sketch/728303"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail728303@2x.jpg" height="192px"></a>&emsp;<a href="https://www.openprocessing.org/sketch/720376"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail720376@2x.jpg" height="192px" ></a>&emsp;<a href="https://www.openprocessing.org/sketch/609639"><img src="https://openprocessing-usercontent.s3.amazonaws.com/thumbnails/visualThumbnail609639@2x.jpg" height="192px"></a>
 
 ## Waltz of the circles
 
@@ -35,6 +37,16 @@ Normally, fire and ice can’t coexist, but in my Jerusalem ice can burns into f
 There is an old saying that the sun always comes after wind and rain, but here fire comes after ice. **A single spark can start a prairie fire after ice and snow, just like we need try hard to succeed.**
 
 <a href="./ice_and_fire/ice_and_fire.pde"><img src="./ice_and_fire/screenshots/example.gif" height="500px"></a>
+
+## Acqman
+
+Since fire and ice are mentioned, water cannot be ignored. And the sea has the most water in the world, so I must add the king of the sea to my Jerusalem, *Acqman*, who is one of my favorite super heros.
+
+There is a wonderful line in the movie "Acqman": **What could be greater than a king? A hero. A king only fights for its nation. You fight for everyone.**
+
+Everyone is looking for sunshine, but no one can survive without air. Just like the king who always comes and go without a trace and silently protects everyone.
+
+<a href="./acqman/acqman.pde"><img src="./acqman/screenshots/example.gif" height="500px"></a>
 
 ## Tree Plant
 
@@ -81,3 +93,23 @@ The left picture below is only in BFS mode, it is a little bit monotonous, becau
 This sketch is inspired by the great work done by [Mike Bostock](https://bl.ocks.org/mbostock/11337835).
 
 <a href="./mr_bug/mr_bug.pde"><img src="./mr_bug/screenshots/bfs.gif" height="250px" ></a>&emsp;<a href="./mr_bug/mr_bug.pde"><img src="./mr_bug/screenshots/dfs.gif" height="250px" ></a>&emsp;<a href="./mr_bug/mr_bug.pde"><img src="./mr_bug/screenshots/both.gif" height="250px"></a>
+
+## Broken Heart
+
+**In my Jerusalem, sadness makes happiness more memorable.**
+
+ Although now there is a happy tree planet, a fearless gluttonous squid, a unpredictable rainbow dragon, a delightful Mr.bug, there is also a broken heart.
+
+This heart has been deformed hurt by the sad news it saws. **No matter what, life is joy in suffering and all we can do is to be cute.**
+
+<a href="./broken_heart/broken_heart.pde"><img src="./broken_heart/example.gif" ></a>
+
+## Clutch Shot
+
+And finally it comes to *Clutch Shot* which is the first Processing sketch I created and the key to my Jerusalem. **Because it is first time that I use code to record a tiny moment in my life which led me to a fancy world.**
+
+It tells a sad but educational story which was a extremely dramaticbasketball final in our University. Our team was ahead of about 20 points in the first half of the game, but was lost at the last second.
+
+There is a big shooter and a small defender is insignificant compared to him, and the result is also obvious, the small ball is about to be thrown into the big basket!
+
+<a href="./clutch_shoot/clutch_shoot.pde"><img src="./clutch_shoot/screenshots/example.png" ></a>
