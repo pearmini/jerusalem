@@ -1,11 +1,12 @@
 /*
-  based on: https://observablehq.com/@rreusser/instanced-webgl-circles
+based on: https://observablehq.com/@rreusser/instanced-webgl-circles
 */
 
 final int MAX_CIRCLE_CNT = 2500, MIN_CIRCLE_CNT = 100, 
-  MAX_VERTEX_CNT = 30, MIN_VERTEX_CNT = 3;
+MAX_VERTEX_CNT = 30, MIN_VERTEX_CNT = 3;
 
 int circleCnt, vertexCnt;
+
 void setup() {
   size(700, 700);	
 }
@@ -13,18 +14,18 @@ void setup() {
 void draw() {
   background(0);
   translate(width / 2, height / 2);
-
+  
   updateCntByMouse();
-
+  
   for (int ci = 0; ci < circleCnt; ci++) {
     float time = float(frameCount) / 20;
     float thetaC = map(ci, 0, circleCnt, 0, TAU);
     float scale = 300;
-
+    
     PVector circleCenter = getCenterByTheta(thetaC, time, scale);
     float circleSize = getSizeByTheta(thetaC, time, scale);
     color c = getColorByTheta(thetaC, time);
-
+    
     stroke(c);
     noFill();
     beginShape();
@@ -47,7 +48,7 @@ void updateCntByMouse() {
 PVector getCenterByTheta(float theta, float time, float scale) {
   PVector direction = new PVector(cos(theta), sin(theta));
   float distance = 0.6 + 0.2 * cos(theta * 6.0 + cos(theta * 8.0 + time));
-  PVector circleCenter =PVector.mult(direction, distance * scale);
+  PVector circleCenter = PVector.mult(direction, distance * scale);
   return circleCenter;
 }
 

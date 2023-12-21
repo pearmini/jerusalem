@@ -10,10 +10,10 @@ void setup() {
 
 void draw() {
   background(233);
-
+  
   p.update();
   p.display();
-
+  
 }
 
 void mousePressed() {
@@ -40,9 +40,9 @@ class Planet {
     oribitWidth = 5 * _r;
     oribitHeight = _r;
     ballSpeed = 1.5;
-    rotateTheta = radians(-25);
+    rotateTheta = radians( - 25);
   }
-
+  
   void update() {
     // delete extra tree
     int cnt = trees.size() -  MAX_TREE_COUNT;
@@ -51,9 +51,9 @@ class Planet {
         trees.get(i).die();
       }
     }
-
+    
     // update the trees
-    for (int i = trees.size() - 1; i >=0; i--) {
+    for (int i = trees.size() - 1; i >= 0; i--) {
       Tree t = trees.get(i);
       if (t.isDead) {
         trees.remove(t);
@@ -63,17 +63,17 @@ class Planet {
       t.r = rByTheta(t.theta);
       t.update();
     }
-
+    
     // update the ball
     ballAngle += ballSpeed;
     ballAngle %= 360;
   }
-
+  
   float rByTheta(float theta) {
     float scale = noise(sin(theta) + 1, cos(theta) + 1, float(frameCount) / 100);
     return r * (scale / 2 + 1);
   }
-
+  
   float angleByTheta(float theta) {
     final float offset = 0.06;
     float theta1 = theta - offset, theta2 = theta + offset;
@@ -81,26 +81,26 @@ class Planet {
     float b = rByTheta(theta2);
     return atan2(a * sin(theta1) - b * sin(theta2), a * cos(theta1) - b * cos(theta2));
   }
-
+  
   void displayTrace(float startAngle, float endAngle) {
     pushMatrix();
     // shake
     float theta = map(noise(float(frameCount) / 100), 0, 1, 0, 25);
     rotate(radians(theta));
-
+    
     // back
     noFill();
     stroke(233);
     strokeWeight(12);
     arc(0, 0, oribitWidth, oribitHeight, startAngle, endAngle);
-
+    
     // front
     stroke(0);
     strokeWeight(4);
     arc(0, 0, oribitWidth, oribitHeight, startAngle, endAngle);
     popMatrix();
   }
-
+  
   void displayBody() {
     fill(0);
     strokeWeight(5);
@@ -114,7 +114,7 @@ class Planet {
     }
     endShape();
   }
-
+  
   void displayBall() {
     pushMatrix();
     //shake
@@ -129,11 +129,11 @@ class Planet {
     ellipse(oribitWidth * cos(theta) / 2, oribitHeight * sin(theta) / 2 + offsetY, 35, 35);
     popMatrix();
   }
-
+  
   void display() {
     translate(x, y);
     rotate(rotateTheta);
-
+    
     // display the body and trace of the planet
     displayTrace(PI, TWO_PI);
     if (ballAngle < 180) {
@@ -145,23 +145,23 @@ class Planet {
       displayBody();
       displayTrace(0, PI);
     }
-
+    
     // display the trees
     for (Tree t : trees) {
       t.display();
     }
   }
-
+  
   void addTree() {
     float mx = mouseX, my = mouseY;
-    float theta = atan2(my - y, mx - x) - rotateTheta ;
+    float theta = atan2(my - y, mx - x) - rotateTheta;
     int type = int(random(3));
     Tree t = new Tree(theta, type);
     t.r = rByTheta(t.theta);
     t.angle = angleByTheta(t.theta);
     trees.add(t);
   }
-
+  
   void rotateAngle() {
     if (!isInBody()) {
       float theta1 = atan2(mouseY - y, mouseX - x);
@@ -169,17 +169,17 @@ class Planet {
       rotateTheta += theta1 - theta2;
     }
   }
-
+  
   boolean isInBody() {
     float mx = mouseX, my = mouseY;
-    float theta = atan2(my -y, mx - x);
+    float theta = atan2(my - y, mx - x);
     float r = rByTheta(theta);
     if (dist(mx, my, x, y) < r) {
       return true;
     }
     return false;
   }
-
+  
 }
 
 
@@ -199,16 +199,16 @@ class Tree {
     root.isGrowing = true;
     type = _type;
     location = new PVector();
-
+    
     addBraches(root);
   }
-
+  
   void addBraches(Branch b) {
     branches.add(b);
     int cnt = int(random(2, 4));
     if (b.level > MAX_DEPTH) {
       for (int i = 0; i < cnt; i++) {
-        float offset = random(-10, 10);
+        float offset = random( - 10, 10);
         float c1 = random(255), c2 = random(255);
         color c = type == 0 ? color(c1, c2, 255) : type == 1 ? color(c1, 255, c2) : color(255, c1, c2);
         Flower f = new Flower(b, offset, c);
@@ -224,7 +224,7 @@ class Tree {
       }
     }
   }
-
+  
   void die() {
     for (Branch b : branches) {
       if (b.level == MAX_DEPTH + 1) {
@@ -232,7 +232,7 @@ class Tree {
       }
     }
   }
-
+  
   void update() {
     location.set(r * cos(theta), r * sin(theta));
     if (branches.get(0).isDead) {
@@ -241,7 +241,7 @@ class Tree {
     for (Branch b : branches) {
       b.update();
     }
-
+    
     for (int i = 0; i < flowers.size(); i++) {
       Flower f = flowers.get(i);
       if (f.isFlying && !f.isDown) {
@@ -256,11 +256,11 @@ class Tree {
           f.applyForce(gravity);
         }
       }
-
+      
       f.update();
     }
   }
-
+  
   void blow() {
     isBlow = true;
     for (Flower f : flowers) {
@@ -268,7 +268,7 @@ class Tree {
       f.isFlying = true;
     }
   }
-
+  
   void display() {
     pushMatrix();
     translate(location.x, location.y);
@@ -278,7 +278,7 @@ class Tree {
         b.display();
       }
     }
-
+    
     for (Flower f : flowers) {
       if (!f.isDown) {
         f.display();
@@ -299,14 +299,14 @@ class Branch {
     len = _len;
     level = _level;
     sw = map(level, 0, Tree.MAX_DEPTH, 5, 2);
-
+    
     from = new PVector(fromX, fromY);
     current = new PVector(fromX, fromY);
     to = new PVector(fromX + len * cos(theta), fromY + len * sin(theta));
-
+    
     father = _father;
   }
-
+  
   void update() {
     if (isDying) {
       current = PVector.lerp(current, from, 0.2);
@@ -327,7 +327,7 @@ class Branch {
       }
     }
   }
-
+  
   void display() {
     strokeWeight(sw);
     stroke(0);
@@ -349,37 +349,37 @@ class Flower {
     origin = new PVector(0, -100);
     c = _c;
   }
-
+  
   void down() {
     velocity = PVector.random2D();
     velocity.mult(1.5);
   }
-
+  
   void applyForce(PVector force) {
     if (isGrown) {
       accerlation.add(force);
     }
   }
-
+  
   void update() {
     if (father.isGrown) {
       isGrown = true;
     }
-
+    
     if (father.isDying) {
       if (!isDown && !isFlying) {
         down();
         isFlying = true;
       }
     }
-
+    
     if (isGrown) {
       velocity.add(accerlation);
       location.add(velocity);
       accerlation.mult(0);
     }
   }
-
+  
   void display() {
     if (isGrown) {
       fill(c);

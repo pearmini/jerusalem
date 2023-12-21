@@ -4,7 +4,7 @@ based on : https://www.openprocessing.org/sketch/415191
 ParticleSystem ps;
 
 void setup() {
-	size(700, 700);
+  size(700, 700);
   colorMode(HSB, 360);
   ps = new ParticleSystem();
 }
@@ -19,25 +19,25 @@ void draw() {
 
 class ParticleSystem {
   ArrayList<Particle> plist;
-
+  
   ParticleSystem() {
     plist = new ArrayList<Particle>();
   }
-
+  
   void run() {
-    for (int i = plist.size()-1; i >= 0; i--) {
+    for (int i = plist.size() - 1; i >= 0; i--) {
       Particle p = plist.get(i);
-			if (p.isDead()) {
+    	  if (p.isDead()) {
         plist.remove(i);
       }
       p.run();
     }
   }
-
+  
   void addFire(float x, float y) {
     plist.add(new Ice(x, y));
   }
-
+  
   void addFire(float x, float y, float size) {
     plist.add(new Fire(x, y, size));
   };
@@ -56,7 +56,7 @@ class Particle {
   float lifespan, lifeRate, hue, maxLifespan;
   float angle, aVelocity, aAcceleration;
   int type;
-
+  
   Particle(float x, float y, int t) {
     type = t;
     origin = new PVector(x, y);
@@ -67,27 +67,27 @@ class Particle {
     lifeRate = random(0.35, 1);
     hue = 20;
   }
-
+  
   float getSpeed(float s) {
     float t = maxLifespan / lifeRate;
     return s / t;
   }
-
+  
   void run() {
-		display();
+    	display();
     update();
   }
-
+  
   void update() {
     velocity.add(acceleration);
     location.add(velocity);
-
+    
     aVelocity += aAcceleration;
     angle += aVelocity;
-
+    
     lifespan -= lifeRate;
   }
-
+  
   boolean isDead() {
     if (lifespan < 0.0) {
       return true;
@@ -95,7 +95,7 @@ class Particle {
       return false;
     }
   }
-
+  
   void display() {
     pushMatrix();
     translate(origin.x, origin.y);
@@ -105,7 +105,7 @@ class Particle {
     drawShape();
     popMatrix();
   }
-
+  
   void drawShape() {
     stroke(hue, 255, 255);
     strokeWeight(30);
@@ -119,24 +119,24 @@ class Ice extends Particle {
   float theta;
   Ice(float x, float y) {
     super(x, y, 1);
-
+    
     PVector v = new PVector(mouseX - pmouseX, mouseY - pmouseY);
     v.mult(0.1);
     velocity.mult(getSpeed(100));
-		velocity.add(v);
-
+    	velocity.add(v);
+    
     plist = new ArrayList();
     for (int i = 0; i < 3; i++) {
-      float xOffset = random(-10, 10);
-      float yOffset = random(-10, 10);
+      float xOffset = random( - 10, 10);
+      float yOffset = random( - 10, 10);
       float hue = random(135, 185);
       plist.add(new PVector(xOffset, yOffset, hue));
     }
-
+    
     theta = random(TAU);
     hue = 165;
   }
-
+  
   void update() {
     super.update();
     if (int(random(5)) == 0) {
@@ -146,14 +146,14 @@ class Ice extends Particle {
       }
     }
   }
-
+  
   void spawn() {
     float size = random(25, 50) * map(lifespan, maxLifespan, 0, 1, 0);
-		if(size > 0){
+    	if (size > 0) {
       ps.addFire(location.x + origin.x, location.y + origin.y, size);
-		}
+      	}
   }
-
+  
   void drawShape() {
     noStroke();
     rotate(theta);
@@ -177,23 +177,23 @@ class Fire extends Particle {
     size = _size;
     lifespan = maxLifespan = 30;
     lifeRate = random(0.4, 1.25);
-
-    angle = random(-45, 45);
-    aVelocity = random(-2, 2);
-
-    velocity.set(0, getSpeed(random(-100, -100)));
+    
+    angle = random( - 45, 45);
+    aVelocity = random( - 2, 2);
+    
+    velocity.set(0, getSpeed(random( - 100, -100)));
     acceleration.mult(0);
     theta = random(TAU);
-
+    
     hue = 130;
     size *= 1.5;
     alpha = random(100, 200);
   }
-
+  
   void drawShape() {
     rotate(theta);
     fill(10 + lifespan * 1.2, 360, 360, alpha);
     noStroke();
-    triangle(-size / 2, 0, size / 2, 0, 0, size * sqrt(3) / 2);
+    triangle( - size / 2, 0, size / 2, 0, 0, size * sqrt(3) / 2);
   }
 }

@@ -11,7 +11,7 @@ void setup() {
   fullScreen();
   colorMode(HSB, 360);
   ellipseMode(CENTER);
-
+  
   maxDistance = sqrt((width / 2) * (width / 2) + (height / 2) * (height / 2)); 
   squid = new Squid(0, 0, 8);
   stars = new Stars(0, 0, 40);
@@ -20,17 +20,17 @@ void setup() {
 void draw() {
   background(0); 
   translate(width / 2, height / 2); 
-
+  
   PVector velocity = velocityByDistanceToCenter();
-
+  
   if (stars.findFood()) {
     squid.grow();
   }
-
+  
   squid.update(velocity); 
-	velocity.mult(-1);
+  velocity.mult( - 1);
   stars.update(velocity);
-
+  
   stars.display();
   squid.display();
 }
@@ -44,14 +44,14 @@ PVector velocityByDistanceToCenter() {
   direction.normalize();
   float speed = map(distance, 0, maxDistance, 5, 30); 
   direction.mult(speed);
-	return direction;
+  return direction;
 }
 
 class Squid {
-  Tentacle [] tens; 
+  Tentacle[] tens; 
   float scaleRatio;
   PVector location;
-
+  
   Squid(float x, float y, int cnt) {
     tens = new Tentacle[cnt];
     
@@ -66,12 +66,12 @@ class Squid {
     location  = new PVector(x, y);
   }
   
-  void grow(){
-    for(int i = 0; i < tens.length; i++){
+  void grow() {
+    for (int i = 0; i < tens.length; i++) {
       tens[i].addLimb();
     }
   }
-
+  
   void update(PVector velocity) {
     scaleRatio = map(velocity.mag(), 5, 35, 1, 5); 
     location.add(velocity);
@@ -83,14 +83,14 @@ class Squid {
   void display() {
     // transforms
     scale(scaleRatio);
-    translate(-location.x, -location.y); 
-		
- 
+    translate( - location.x, -location.y); 
+    	
+    
     //触角
     for (int i = 0; i < tens.length; i++) {
       tens[i].display();
     }
-
+    
     //脸
     translate(location.x, location.y); 
     fill(30); 
@@ -98,7 +98,7 @@ class Squid {
     strokeWeight(3.5); 
     drawNoiseLoop(0, 0, 30); 
     drawEye(15, 0, 20); 
-    drawEye(-15, 0, 20);
+    drawEye( - 15, 0, 20);
   }
 }
 
@@ -108,7 +108,7 @@ void drawNoiseLoop(float cx, float cy, float cr) {
   float time = float(frameCount) / 100; 
   for (int i = 0; i <= cnt; i++) {
     float theta = map(i, 0, cnt, 0, TWO_PI); 
-    float r = cr *  (1 + noise(sin(theta) + 1, cos(theta) + 1, time) * 0.7); 
+    float r = cr * (1 + noise(sin(theta) + 1, cos(theta) + 1, time) * 0.7); 
     float x = cx + r * cos(theta); 
     float y = cy + r * sin(theta); 
     vertex(x, y);
@@ -119,20 +119,20 @@ void drawNoiseLoop(float cx, float cy, float cr) {
 void drawEye(float x, float y, int size) {
   float angle = atan2(mouseX - width / 2, mouseY - height / 2);
   pushMatrix();
-
+  
   translate(x, y); 
-
+  
   // first cirlce
   fill(360); 
   stroke(360); 
   ellipse(0, 0, size, size); 
-
+  
   // second circle
   rotate(angle); 
   fill(0); 
   noStroke(); 
-  ellipse(size/5, 0, size/1.5, size/1.5); 
-
+  ellipse(size / 5, 0, size / 1.5, size / 1.5); 
+  
   popMatrix();
 }
 class Limb {
@@ -141,86 +141,86 @@ class Limb {
   float currentX, currentY; 
   float size; 
   float amt; 
-
+  
   Limb(float _size, float theta) {
     size = _size; 
     offsetX = 6 * cos(theta); 
     offsetY = 6 * sin(theta); 
     amt = 0.4;
   }
-
+  
   void update(float x, float y) {
     startX = x; 
     startY = y; 
     endX = startX + offsetX; 
     endY = startY + offsetY; 
-
+    
     shake(); 
     transition();
   }
-
+  
   void transition() {
     currentX = lerp(currentX, endX, amt); 
     currentY = lerp(currentY, endY, amt);
   }
-
+  
   void shake() {
-    endX += (.5-noise((endX+frameCount)*.008, 0))*20; 
-    endY += (.5-noise(0, (endY+frameCount)*.008))*20;
+    endX += (.5 - noise((endX + frameCount) * .008, 0)) * 20; 
+    endY += (.5 - noise(0,(endY + frameCount) * .008)) * 20;
   }
-
+  
   void display() {
     //画一条线
     strokeWeight(size + 7); 
     line(startX, startY, currentX, currentY); 
-
+    
     //画一个点
     strokeWeight(size / 2 + 7); 
-    point(startX + (offsetX*1.5), startY + (offsetY *1.5));
+    point(startX + (offsetX * 1.5), startY + (offsetY * 1.5));
   }
 }
 class Stars { 
-  PVector [] stars;
+  PVector[] stars;
   PVector center;
   Stars(float x, float y, int cnt) {
     stars = new PVector[cnt];
-    for (int i = 0; i< cnt; i++) {
-      stars[i] = new PVector(random(-width, width), random(-height, height), random(10, 20));
+    for (int i = 0; i < cnt; i++) {
+      stars[i] = new PVector(random( - width, width), random( - height, height), random(10, 20));
     }
     center = new PVector(x, y);
   }
-
+  
   void update(PVector velocity) {
     center.add(velocity);
-
+    
     for (int i = 0; i < stars.length; i++) {
       PVector s = stars[i];
       if (velocity.x > 0 && s.x + center.x > width) {
         s.x -= width * 2;
-      } else if (velocity.x < 0 && s.x + center.x < -width) {
+      } else if (velocity.x < 0 && s.x + center.x < - width) {
         s.x += width * 2;
       }
-
+      
       if (velocity.y > 0 && s.y + center.y > height) {
         s.y -= height * 2;
-      } else if (velocity.y < 0 && s.y + center.y < -height) {
+      } else if (velocity.y < 0 && s.y + center.y < - height) {
         s.y += height * 2;
       }
     }
   }
-
+  
   boolean findFood() {
     int len = stars.length;
     PVector food = stars[len - 1];
     PVector location = PVector.add(food, center);
     
-    if(location.mag() < 100){
-      food.set(random(-width, width), random(-height, height), random(10, 30));
+    if (location.mag() < 100) {
+      food.set(random( - width, width), random( - height, height), random(10, 30));
       return true;
     }
     return false;
   }
-
+  
   void display() {
     pushMatrix();
     translate(center.x, center.y); 
@@ -238,7 +238,7 @@ class Stars {
     popMatrix();
   }
   
-  void drawStar(float x, float y, float w, float h){
+  void drawStar(float x, float y, float w, float h) {
     pushMatrix();
     float period = 3000;
     float intensity = 5;
@@ -252,20 +252,20 @@ class Stars {
 }
 
 class Tentacle {
-  Limb [] segments = new Limb[5]; 
+  Limb[] segments = new Limb[5]; 
   float minHue, maxHue; 
   float theta;
   Tentacle(float _theta, float _minHue, float _maxHue) {
     theta = _theta;
     for (int i = 0; i < segments.length; i++) {
-      float size = 45 -(i * 1.75); 
+      float size = 45 - (i * 1.75); 
       segments[i] = new Limb(size, theta); 
       minHue = _minHue; 
       maxHue = _maxHue;
     }
   }
   
-  void addLimb(){
+  void addLimb() {
     float size = 45 - segments.length * 1.75;
     int len = segments.length;
     size = size > 4 ? size : 4;
@@ -274,17 +274,17 @@ class Tentacle {
     l.currentY = segments[len - 1].endY;
     segments = (Limb[]) append(segments, l);
   }
- 
+  
   void update(float x, float y) {
     for (int i = 0; i < segments.length; i++) {
       if (i == 0) {   
         segments[i].update(x, y);
       } else {   
-        segments[i].update(segments[i-1].currentX, segments[i-1].currentY);
+        segments[i].update(segments[i - 1].currentX, segments[i - 1].currentY);
       }
     }
   }
-
+  
   void display() {
     for (int i = 0; i < segments.length; i++) {
       float hue = map(i, 0, segments.length, minHue, maxHue); 
@@ -295,7 +295,7 @@ class Tentacle {
   }
 }
 
-int [] colorScale = {#6d3fa9, #6e3faa, #6f3faa, #703faa, #703fab, #713fab, #723fab, #733fac, #743fac, #753fac, 
+int[] colorScale = {#6d3fa9, #6e3faa, #6f3faa, #703faa, #703fab, #713fab, #723fab, #733fac, #743fac, #753fac, 
   #753fac, #763fad, #773fad, #783fad, #793ead, #7a3eae, #7a3eae, #7b3eae, #7c3eae, #7d3eaf, 
   #7e3eaf, #7f3eaf, #803eaf, #803eaf, #813eb0, #823eb0, #833eb0, #843eb0, #853eb0, #863eb0, 
   #863db1, #873db1, #883db1, #893db1, #8a3db1, #8b3db1, #8c3db1, #8d3db2, #8d3db2, #8e3db2, 

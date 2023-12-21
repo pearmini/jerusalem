@@ -1,7 +1,6 @@
 Grid g;
 void setup() {
   size(500, 500);
-	// fullScreen();
   g = new Grid(width, height, 1);
   colorMode(HSB, 360);
   background(360);
@@ -23,7 +22,7 @@ class Grid {
   final int BFS = 0, DFS = 1;
   float cellSize;
   ArrayList<Integer> frontier;
-  int [] visited, depth;
+  int[] visited, depth;
   int col, row;
   int type;
   boolean isCrawling;
@@ -34,30 +33,30 @@ class Grid {
     isCrawling = false;
     type = BFS;
   }
-
+  
   void init() {
     visited = new int[row * col]; //初始化为零，表示都没有来过
     depth = new int[row * col];
     frontier = new ArrayList();
   }
-
+  
   void changeCrawlerType() {
     type++;
     type %= 2;
   }
-
+  
   void putCrawler(int x, int y) {
     background(360);
     init();
     isCrawling = true;
-
+    
     int r = int(y / cellSize);
     int c = int(x / cellSize);
     int index = col * r + c;
     frontier.add(index);
     depth[index] = 0;
   }
-
+  
   void crawl() {
     if (isCrawling) {
       if (type == BFS) {
@@ -67,15 +66,15 @@ class Grid {
       }
     }
   }
-
+  
   void randomizedDFS() {
     int k = 0;
-    while (++k < 1200 && !frontier.isEmpty()) {
+    while(++k < 1200 && !frontier.isEmpty()) {
       int node = pop(frontier);
       if (visited[node] == 1) continue;
       int x = node % col, y = int(node / col);
       fillCell(node);
-
+      
       //枚举改点的所有邻居
       int m = 0, next;
       if (y > 0 && visited[next = node - col] == 0) {
@@ -93,7 +92,7 @@ class Grid {
         depth[next] = depth[node] + 1;
         m++;
       }
-      if (x < col - 1 && visited[next = node + 1] == 0 ) {
+      if (x < col - 1 && visited[next = node + 1] == 0) {
         frontier.add(next);
         depth[next] = depth[node] + 1;
         m++;
@@ -102,17 +101,17 @@ class Grid {
       shuffle(frontier, frontier.size() - m, frontier.size());
     }
   }
-
-
-
+  
+  
+  
   void randomizedBFS() {
     int k = 0;
-    while (++k < 1200  && !frontier.isEmpty()) {
+    while(++k < 1200  && !frontier.isEmpty()) {
       int node = popRandom(frontier);
       if (visited[node] == 1) continue;
       int x = node % col, y = int(node / col);
       fillCell(node);
-
+      
       //枚举该点所有的邻居
       int m = 0, next;
       if (y > 0 && visited[next = (node - col)] == 0) {
@@ -130,7 +129,7 @@ class Grid {
         depth[next] = depth[node] + 1;
         m++;
       }
-      if (x < col - 1 && visited[next = (node + 1)] == 0 ) {
+      if (x < col - 1 && visited[next = (node + 1)] == 0) {
         frontier.add(next);
         depth[next] = depth[node] + 1;
         m++;
@@ -138,28 +137,28 @@ class Grid {
       visited[node] = 1; //表示已经来过了
     }
   }
-
-
+  
   void swap(ArrayList<Integer> array, int i, int j) {
     int tmp = array.get(i);
     array.set(i, array.get(j));
     array.set(j, tmp);
   }
+
   int pop(ArrayList<Integer> array) {
     int n = array.size();
     int t = array.get(n - 1);
     array.remove(n - 1);
     return t;
   }
-
-
+  
   void shuffle(ArrayList<Integer> array, int left, int right) {
     int m = right - left;
-    while (m > 0) {
+    while(m > 0) {
       int i = int(random(1) * m --);
       swap(array, left + i, left + m);
     }
   }
+
   int popRandom(ArrayList<Integer> array) {
     int n = array.size(), i = int(random(n));
     int t = array.get(i);
@@ -167,9 +166,7 @@ class Grid {
     array.remove(n - 1);
     return t;
   }
-
-
-
+  
   void fillCell(int i) {
     int x = i % col, y = int(i / col);
     noStroke();
@@ -179,7 +176,7 @@ class Grid {
   }
 }
 
-int [] colorScale = {#6d3fa9, #6e3faa, #6f3faa, #703faa, #703fab, #713fab, #723fab, #733fac, #743fac, #753fac, 
+int[] colorScale = {#6d3fa9, #6e3faa, #6f3faa, #703faa, #703fab, #713fab, #723fab, #733fac, #743fac, #753fac, 
   #753fac, #763fad, #773fad, #783fad, #793ead, #7a3eae, #7a3eae, #7b3eae, #7c3eae, #7d3eaf, 
   #7e3eaf, #7f3eaf, #803eaf, #803eaf, #813eb0, #823eb0, #833eb0, #843eb0, #853eb0, #863eb0, 
   #863db1, #873db1, #883db1, #893db1, #8a3db1, #8b3db1, #8c3db1, #8d3db2, #8d3db2, #8e3db2, 
